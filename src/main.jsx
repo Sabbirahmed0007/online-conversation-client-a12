@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css'
 import { RouterProvider } from 'react-router-dom';
+import Routes from './Routes/Routes.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
-    <RouterProvider></RouterProvider>
-    <h1>Hi</h1>
+    <RouterProvider router={Routes}></RouterProvider>
   </React.StrictMode>,
 )
