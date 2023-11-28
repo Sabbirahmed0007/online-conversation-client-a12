@@ -16,11 +16,11 @@ const Navbar = ({user}) => {
     },[theme])
 
 
-    const navlinks=<div className='flex flex-col lg:flex-row gap-3 text-md'>
+    const navlinks=<div className='flex flex-col lg:flex-row gap-3 text-md shadow-xl bg-lime-200 px-3 py-2 rounded-2xl'>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/'}>Home</NavLink>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/membership'}>Membership</NavLink>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/notifications'} title='Notifications'><IoNotifications className='text-xl mx-auto text-center  text-black' /></NavLink>
-            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/joinus'}>Join Us</NavLink>
+            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/login'}>Join Us</NavLink>
     </div>
 
 
@@ -28,10 +28,10 @@ const Navbar = ({user}) => {
 
 
     return (
-        <div className='sticky top-0 drop-shadow-xl z-50 border-b-2 bg-gradient-to-r from-gray-400  to-white'>
+        <div className='sticky top-0  z-50 border-b-2 bg-gradient-to-r from-gray-300  to-white'>
             <div className="navbar ">
                 <div className="navbar-start">
-                    <NavLink  className='flex items-center relative '><img src="https://i.ibb.co/fndWgGd/ecko-Arena-logo.png" alt="" className='w-24   mx-auto' /><span className='font-satisfy text-lime-300 text-2xl absolute -right-8'>Arena</span></NavLink>
+                    <NavLink  className='flex items-center relative '><img src="https://i.ibb.co/fndWgGd/ecko-Arena-logo.png" alt="" className='w-24   mx-auto' /><span className='font-satisfy text-blue-500 text-2xl absolute -right-8'>Arena</span></NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -39,7 +39,7 @@ const Navbar = ({user}) => {
                 </ul>
                 </div>
 
-                     <div className="navbar-end">
+                     <div className="navbar-end ">
                         
                         {user ? <div className="dropdown dropdown-end">
                             
@@ -95,7 +95,7 @@ const Navbar = ({user}) => {
                     </div>
 
                     {/* menu bar */}
-                    <div className="dropdown">
+                    <div className="dropdown lg:hidden">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <AiOutlineMenu className='text-xl text-indigo-800'></AiOutlineMenu>
                         </label>

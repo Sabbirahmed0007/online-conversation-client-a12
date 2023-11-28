@@ -24,6 +24,29 @@
   font-family: Changa One, cursive;
 }
 
+/* Scroll bar */
+/* Hide the default scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track (the gray area) */
+::-webkit-scrollbar-track {
+  background: rgb(205, 202, 50);
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #a36397;
+  border-radius: 60px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 107, 128);
+}
+
+
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
