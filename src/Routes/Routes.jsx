@@ -26,17 +26,17 @@ const Routes = createBrowserRouter([
                 path:'notifications',
                 element:<Notification></Notification>
             },
-            {
-                path:'login',
-                element:<Login></Login>
-            },
-            {
-                path:'register',
-                element:<Register></Register>
-            }
         ]
         
-
+        
+    },
+    {
+        path:'login',
+        element:<Login></Login>
+    },
+    {
+        path:'register',
+        element:<Register></Register>
     }
 ])
 

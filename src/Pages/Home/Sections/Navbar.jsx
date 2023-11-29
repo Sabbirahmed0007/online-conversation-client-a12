@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {AiOutlineMenu} from 'react-icons/ai';
 import { IoNotifications } from "react-icons/io5";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
-const Navbar = ({user}) => {
+const Navbar = ({}) => {
+    const {user, logOut}= useContext(AuthContext);
 
 
     const [theme, setTheme]=useState(localStorage.getItem("theme")? localStorage.getItem("theme"): "light")
@@ -14,6 +17,20 @@ const Navbar = ({user}) => {
         const localTheme = localStorage.getItem("theme");
         document.querySelector('html').setAttribute("data-theme", localTheme)
     },[theme])
+
+
+    const handleLogOut=()=>{
+
+        logOut()
+        .then(()=>{
+            console.log('You logged out successfully');
+            Swal.fire("Good job!", "You Logged out successfully!", "success");
+        })
+        .catch(error=>{
+            console.error("Error", error.massage);
+        })
+
+    }
 
 
     const navlinks=<div className='flex flex-col lg:flex-row gap-3 text-md shadow-xl bg-lime-200 px-3 py-2 rounded-2xl'>
@@ -46,7 +63,7 @@ const Navbar = ({user}) => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar ring-2 mx-2">
                             <div className="w-10 rounded-full">
                                 {
-                                    // user? <img src={user.photoURL} /> : ""
+                                    user? <img src={user.photoURL} /> : ""
                                 }
                                 
                             </div>
@@ -71,11 +88,12 @@ const Navbar = ({user}) => {
                                 <span>{theme=== 'dark'? <h2 className='font-bold'>Dark</h2>:<h2 className='font-bold'>Light</h2>}</span>
                             </div>
                             </li>
-                            {/* <li className='mx-3 font-bold'>{user && user.displayName}</li>
-                            <li className='font-bold text-fuchsia-600'>{user?<Link onClick={handleLogOut}>Logout</Link>: <Link to={'/login'}>Log in</Link> }</li> */}
+                            <li className='mx-3 font-bold'>{user && user.displayName}</li>
+                            <li className='font-bold text-fuchsia-600'>{user?<Link onClick={handleLogOut}>Logout</Link>: <Link to={'/login'}>Log in</Link> }</li>
                             </ul>
-                            </div>:
-                            <div  className='flex justify-between items-center'>
+                            </div>
+                            :
+                            <div  className='flex justify-between items-center bg-slate-200 p-1 rounded-full drop-shadow-xl'>
                             <label className="swap swap-rotate ">
 
                                 <input type="checkbox" onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
