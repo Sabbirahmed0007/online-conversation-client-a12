@@ -7,6 +7,7 @@ import MemberShip from '../Pages/MemberShip/MemberShip';
 import Notification from '../Pages/Notifications/Notification';
 import Login from '../Pages/JoinUs/Login';
 import Register from '../Pages/Register/Register';
+import PrivateRoutes from './PrivateRoutes';
 
 const Routes = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const Routes = createBrowserRouter([
             }, 
             {
                 path:'membership',
-                element:<MemberShip></MemberShip>
+                element:<PrivateRoutes><MemberShip></MemberShip></PrivateRoutes>
             },
             {
                 path:'notifications',

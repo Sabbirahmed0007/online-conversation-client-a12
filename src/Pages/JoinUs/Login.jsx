@@ -53,8 +53,8 @@ const Login = () => {
                     imageAlt: "Custom image"
                 });
                 form.reset();
-                navigate(from, { replace: true });
-                // navigate(location?.state  ? location?.state?.from?.pathname : '/');
+                // navigate(from, { replace: true });
+                navigate(location?.state  ? location?.state?.from?.pathname : '/');
                 
         })
 

@@ -175,7 +175,7 @@ const Register = () => {
                 <button onClick={()=>{navigate(-1)}} className='mx-2 p-2 border-2  rounded-md  font-bold'>⬅ </button>
                 <Link to={'/'} className='hover:bg-gray-50 hover:text-black p-2 border-2 my-5 rounded-md font-bold'>Home</Link>
             </div>
-            <div className=' max-w-md mx-auto lg:max-w-2xl  lg:mx-auto  flex flex-col lg:flex-row-reverse items-center justify-center lg:gap-4  shadow-2xl  border-r-8 border-gray-400  border-l-8'>
+            <div className=' max-w-lg mx-auto lg:max-w-2xl  lg:mx-auto  flex flex-col lg:flex-row-reverse items-center justify-center lg:gap-4  shadow-2xl  border-r-8 border-gray-400  border-l-8'>
                 
                 <div className='w-9/12 max-w-lg mx-auto  p-5    rounded-md  my-7'>
                     <div className='text-center my-4'>

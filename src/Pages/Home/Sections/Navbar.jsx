@@ -33,11 +33,13 @@ const Navbar = ({}) => {
     }
 
 
-    const navlinks=<div className='flex flex-col lg:flex-row gap-3 text-md shadow-xl bg-lime-200 px-3 py-2 rounded-2xl'>
+    const navlinks=<div className='flex flex-col lg:flex-row gap-3 text-md shadow-xl lg:p-3 bg-lime-200 px-3 py-1 rounded-3xl'>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/'}>Home</NavLink>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/membership'}>Membership</NavLink>
-            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/notifications'} title='Notifications'><IoNotifications className='text-xl mx-auto text-center  text-black' /></NavLink>
-            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/login'}>Join Us</NavLink>
+            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/notifications'} title='Notifications'><div className='flex items-center justify-center '><IoNotifications className='text-xl mx-auto text-center text-black' /> <div className="badge badge-secondary badge-sm  ">+45</div></div> </NavLink>
+            {
+                user? " ": <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/login'}>Join Us</NavLink>
+            }
     </div>
 
 
@@ -48,7 +50,7 @@ const Navbar = ({}) => {
         <div className='sticky top-0  z-50 border-b-2 bg-gradient-to-r from-gray-300  to-white'>
             <div className="navbar ">
                 <div className="navbar-start">
-                    <NavLink  className='flex items-center relative '><img src="https://i.ibb.co/fndWgGd/ecko-Arena-logo.png" alt="" className='w-24   mx-auto' /><span className='font-satisfy text-blue-500 text-2xl absolute -right-8'>Arena</span></NavLink>
+                    <NavLink  className='flex items-center  '><img src="https://i.ibb.co/xDdLKcX/OIG-removebg-preview.png" alt="" className='w-20  mx-auto' /></NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -72,8 +74,8 @@ const Navbar = ({}) => {
                             
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li className='flex'>
-                            <div  className='flex justify-between'>
-                                <label className="swap swap-rotate">
+                            <div  className='flex justify-between' >
+                                <label className="swap swap-rotate" >
 
                                     <input type="checkbox" onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
                                     
@@ -89,6 +91,7 @@ const Navbar = ({}) => {
                             </div>
                             </li>
                             <li className='mx-3 font-bold'>{user && user.displayName}</li>
+                            <li className='font-bold font-railway'>{user && <Link to={'/register'}>Create a new user</Link>}</li>
                             <li className='font-bold text-fuchsia-600'>{user?<Link onClick={handleLogOut}>Logout</Link>: <Link to={'/login'}>Log in</Link> }</li>
                             </ul>
                             </div>
@@ -117,8 +120,9 @@ const Navbar = ({}) => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <AiOutlineMenu className='text-xl text-indigo-800'></AiOutlineMenu>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-pink-100 rounded-box w-48 text-center absolute right-0">
+                        <ul tabIndex={0} className="menu menu-sm text-center dropdown-content mt-3 z-[1] p-2 shadow bg-pink-100 rounded-box w-48  absolute right-0">
                             {navlinks}
+
                         </ul>
                     </div>
             </div>

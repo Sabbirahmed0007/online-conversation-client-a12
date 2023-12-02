@@ -1,7 +1,6 @@
 .banner-bg{
-    /* background-image: url('https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg'), */
-    background-image: url('https://i.ibb.co/QmGHSr7/c48695bbd6e6c274b6b0d86a2453f74c.jpg'),
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    background-image: url('https://i.ibb.co/5rgzMvy/OIG-it1jvp-Co-NTQl-J.jpg'),
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5));
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-size: cover;
