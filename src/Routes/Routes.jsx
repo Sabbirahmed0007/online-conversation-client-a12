@@ -17,6 +17,9 @@ import Activities from '../Pages/Dashboard/Admin/Activities/Activities';
 import MyProfile from '../Pages/Dashboard/User/MyProfile/MyProfile';
 import AddPost from '../Pages/Dashboard/User/AddPost/AddPost';
 import MyPost from '../Pages/Dashboard/User/MyProfile/MyPost';
+import PostDetails from '../Pages/Home/Home/ShowAllPost/PostDetails';
+import ShowComments from '../Pages/Home/Home/ShowAllPost/ShowComments';
+import AdminRoutes from './AdminRoutes';
 
 const Routes = createBrowserRouter([
     {
@@ -40,6 +43,15 @@ const Routes = createBrowserRouter([
                 path:'announcement',
                 element:<Announcement></Announcement>
             },
+            {
+                path:'postDetails/:id',
+                element:<PostDetails></PostDetails>,
+                loader:({params})=> fetch(`http://localhost:3000/postDetails/${params.id}`)
+            },
+            {
+                path:'comments/:id',
+                element:<ShowComments></ShowComments>
+            }, 
 
         ]
         
@@ -62,7 +74,8 @@ const Routes = createBrowserRouter([
             // Admin routes
             {
                 path:'adminHome',
-                element: <AdminHome></AdminHome>
+                element:<AdminRoutes><AdminHome></AdminHome></AdminRoutes> 
+                // element: <AdminHome></AdminHome>
             },
             {
                 path:'manageUsers',
@@ -90,7 +103,8 @@ const Routes = createBrowserRouter([
             {
                 path:'myPost',
                 element:<MyPost></MyPost>
-            }
+            },
+            
         ]
     }
 ])

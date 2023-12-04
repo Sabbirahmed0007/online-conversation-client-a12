@@ -9,8 +9,13 @@ import { MdPostAdd } from "react-icons/md";
 
 import { NavLink, Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import UseAdmin from '../../Hooks/UseAdmin';
 
 const Dashboard = () => {
+
+    const [isAdmin]= UseAdmin();
+
+
     return (
         <div>
             <Helmet>
@@ -31,17 +36,28 @@ const Dashboard = () => {
                     <h2 className='text-3xl font-bold text-center text-emerald-500'>ConvoConnect</h2>
                 </div>
                 {/* Sidebar content here */}
-                {/* Admin routes */}
-                <li><NavLink to={'/dashboard/adminHome'}><CgProfile className='text-xl'></CgProfile> Admin Profile</NavLink></li>
-                <li><NavLink to={'/dashboard/createAnnouncement'}><GrAnnounce className='text-xl'></GrAnnounce>Create Announcement</NavLink></li>
-                <li><NavLink to={'/dashboard/manageUsers'}><FaUsers className='text-xl'></FaUsers> Manage Users</NavLink></li>
-                <li><NavLink to={'/dashboard/activities'}><RxActivityLog className='text-xl'></RxActivityLog>Activities</NavLink></li>
+
+                {
+                    isAdmin ?
+                    <>
+                        {/* Admin routes */}
+                        <li><NavLink to={'/dashboard/adminHome'}><CgProfile className='text-xl'></CgProfile> Admin Profile</NavLink></li>
+                        <li><NavLink to={'/dashboard/createAnnouncement'}><GrAnnounce className='text-xl'></GrAnnounce>Create Announcement</NavLink></li>
+                        <li><NavLink to={'/dashboard/manageUsers'}><FaUsers className='text-xl'></FaUsers> Manage Users</NavLink></li>
+                        <li><NavLink to={'/dashboard/activities'}><RxActivityLog className='text-xl'></RxActivityLog>Activities</NavLink></li>
+                    </>
+                    :
+                    <>
+                        <li><NavLink to={'/dashboard/myProfile'}><CgProfile className='text-xl'></CgProfile>My Profile</NavLink></li>
+                        <li><NavLink to={'/dashboard/addPost'}><MdPostAdd className='text-xl'></MdPostAdd>Add Post</NavLink></li>
+                        <li><NavLink to={'/dashboard/myPost'}><RxActivityLog className='text-xl'></RxActivityLog>My Post</NavLink></li>
+                    </>
+
+                }
+                
 
                 {/* User routes */}
 
-                <li><NavLink to={'/dashboard/myProfile'}><CgProfile className='text-xl'></CgProfile>My Profile</NavLink></li>
-                <li><NavLink to={'/dashboard/addPost'}><MdPostAdd className='text-xl'></MdPostAdd>Add Post</NavLink></li>
-                <li><NavLink to={'/dashboard/myPost'}><RxActivityLog className='text-xl'></RxActivityLog>My Post</NavLink></li>
 
                 {/* Devider */}
                 <div className="divider text-black"></div>

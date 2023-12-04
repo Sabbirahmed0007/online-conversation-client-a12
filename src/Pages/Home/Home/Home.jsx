@@ -4,6 +4,7 @@ import Footer from '../Sections/Footer';
 import Tags from '../Sections/Tag/Tags';
 import Announcement from '../Sections/Announcement/Announcement';
 import { Helmet } from 'react-helmet-async';
+import AllPost from './ShowAllPost/AllPosts';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <Tags></Tags>
             <Announcement></Announcement>
+            <AllPost></AllPost>
             <Footer></Footer>
         </div>
     );

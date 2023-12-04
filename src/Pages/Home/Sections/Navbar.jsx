@@ -6,10 +6,12 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosPublic from '../../../Hooks/UseAxiosPublic';
+import UseAdmin from '../../../Hooks/UseAdmin';
 
 const Navbar = ({}) => {
     const {user, logOut}= useContext(AuthContext);
     const axiosPublic = UseAxiosPublic();
+    const [isAdmin]= UseAdmin();
 
     const [theme, setTheme]=useState(localStorage.getItem("theme")? localStorage.getItem("theme"): "light")
 
@@ -34,7 +36,7 @@ const Navbar = ({}) => {
         },
         staleTime: 1000
     })
-    console.log(announcement);
+    // console.log(announcement);
 
     const handleLogOut=()=>{
 
@@ -54,7 +56,14 @@ const Navbar = ({}) => {
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/'}>Home</NavLink>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/membership'}>Membership</NavLink>
             <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/'} title='Notifications'><div className='flex items-center justify-center '><IoNotifications className='text-xl mx-auto text-center text-black' /> <div className="badge badge-secondary badge-sm  ">+{announcement}</div></div> </NavLink>
-            <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/dashboard/adminHome'}>Dashboard</NavLink>
+            {/* <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/dashboard/adminHome'}>Dashboard</NavLink> */}
+
+            {
+                user && isAdmin && <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/dashboard/adminHome'}>Dashboard</NavLink>
+            }
+            {
+                user && !isAdmin && <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/dashboard/myProfile'}>Dashboard</NavLink>
+            }
             {
                 user? " ": <NavLink className={({isPanding, isActive})=> isPanding ? 'pending': isActive? 'active font-bold  text-red-600 ': 'bg-gradient-to-br from-indigo-700 to-green-500 text-transparent bg-clip-text font-bold hover:drop-shadow-2xl'} to={'/login'}>Join Us</NavLink>
             }

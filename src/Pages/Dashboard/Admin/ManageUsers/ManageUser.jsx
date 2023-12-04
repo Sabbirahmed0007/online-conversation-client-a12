@@ -10,7 +10,11 @@ const ManageUser = () => {
     const {data:users=[], refetch}= useQuery({
         queryKey: ['users'],
         queryFn: async()=>{
-            const res = await axiosSecure.get('/users');
+            const res = await axiosSecure.get('/users', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('access-token')}`
+                }
+            });
             console.log(res.data);
             // refetch();
             return res.data ;
@@ -94,7 +98,7 @@ const ManageUser = () => {
 
     return (
         <div>
- <div className="my-10 shadow-sm drop-shadow-sm bg-white  p-4 rounded-sm w-10/12 mx-auto ">
+            <div className="my-10 shadow-sm drop-shadow-sm bg-white  p-4 rounded-sm w-10/12 mx-auto ">
                 <div className="md:text-center font-cinzel flex flex-col md:flex-row  lg:mx-10 justify-between  md:items-center font-extrabold ">
                     <h2 className="text-2xl">All User</h2>
                     <h2 className="text-2xl my-3">Total Users: {users?.length}</h2>

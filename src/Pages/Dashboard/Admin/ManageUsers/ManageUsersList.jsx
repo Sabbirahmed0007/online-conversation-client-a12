@@ -20,7 +20,7 @@ const ManageUsersList = ({user, index, handleDelete, handleMakeAdmin}) => {
                 <FaUsers className='text-white mx-2'></FaUsers>
             </button>}
         </td>
-        <td></td>
+        <td>{user?.membership}</td>
         <th>
             <button onClick={()=>handleDelete(_id)} className="btn btn-ghost bg-red-700 hover:bg-red-600  p-3"><RiDeleteBin6Line className='text-[18px] text-white'></RiDeleteBin6Line></button>
         </th>
