@@ -46,7 +46,7 @@ const Routes = createBrowserRouter([
             {
                 path:'postDetails/:id',
                 element:<PostDetails></PostDetails>,
-                loader:({params})=> fetch(`http://localhost:3000/postDetails/${params.id}`)
+                loader:({params})=> fetch(`https://vercel.com/sabbirahmed0007/online-conversation-platform-serverpostDetails/${params.id}`)
             },
             {
                 path:'comments/:id',

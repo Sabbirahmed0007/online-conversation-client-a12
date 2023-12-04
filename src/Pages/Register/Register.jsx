@@ -49,7 +49,7 @@ const Register = () => {
                     name: data.name,
                     email: data.email
                 }
-                // axios.post('http://localhost:3000/users', userInfo)
+                // axios.post('https://vercel.com/sabbirahmed0007/online-conversation-platform-serverusers', userInfo)
                 axiosPublic.post('/users', userInfo)
                 .then(res=> {
                     if(res.data.insertedId){
@@ -91,7 +91,7 @@ const Register = () => {
 
 
             }
-            // axios.post('http://localhost:3000/users', userInfo)
+            // axios.post('https://vercel.com/sabbirahmed0007/online-conversation-platform-serverusers', userInfo)
             axiosPublic.post('/users', userInfo)
             .then(res=> {
                 console.log(res.data)
