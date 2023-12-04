@@ -1,5 +1,8 @@
 .register-bg{
-    background-image: url('https://i.ibb.co/9nWFd0J/pexels-photo-1629236.jpg');
+    background-image: url('https://i.ibb.co/HKHgYSs/OIG.jpg'),
+    /* background-image: url('https://i.ibb.co/4PrB4DN/OIG-td-Tv-Xsdq3-YDg04s-G.jpg'), */
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

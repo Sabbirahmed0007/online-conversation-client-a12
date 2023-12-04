@@ -1,0 +1,9 @@
+.bg{
+    background-image: url('https://i.ibb.co/xqrfZLT/pexels-photo-3851253.webp'),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
