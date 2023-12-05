@@ -46,9 +46,9 @@ const Routes = createBrowserRouter([
                 // element:<Announcement></Announcement>
             },
             {
-                path:'postDetails/:id',
-                element:<PostDetails></PostDetails>,
-                loader:({params})=> fetch(`https://online-conversation-platform-server.vercel.app/postDetails/${params.id}`)
+                path:'postdetails/:id',
+                element:<PrivateRoutes><PostDetails></PostDetails></PrivateRoutes>
+                // loader:({params})=> fetch(`https://online-conversation-platform-server.vercel.app/postDetails/${params.id}`)
             },
             {
                 path:'comments/:id',

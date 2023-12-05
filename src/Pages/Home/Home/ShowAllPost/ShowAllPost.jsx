@@ -43,7 +43,7 @@ const ShowAllPost = ({post}) => {
                             </Link>
                         </div>
                         <div className='text-center'>
-                            <Link to={`/postDetails/${_id}`}>
+                            <Link to={`/postdetails/${_id}`}>
                                 <button className='btn-accent btn btn-xs'> Show more</button>
                             </Link>
                         </div>
