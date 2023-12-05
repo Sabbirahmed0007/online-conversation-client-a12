@@ -49,7 +49,7 @@ const AdminHome = () => {
                 {/* Admin info */}
 
                     <div className='w-2/3 mx-auto flex flex-col lg:flex-row items-center lg:justify-around gap-4 my-10 shadow-md p-5'>
-                        <img src={user.photoURL} alt="" className='rounded-full'/>
+                        <img src={user.photoURL} alt="" className='w-16 rounded-full'/>
                         <div>
                         <h2 className='text-2xl font-bold'>{user.displayName}</h2>
                         <h2 className='font-bold'>{user.email}</h2>

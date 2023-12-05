@@ -41,16 +41,19 @@ const Routes = createBrowserRouter([
             // },
             {
                 path:'announcement',
-                element:<Announcement></Announcement>
+
+                element: <PrivateRoutes><Announcement></Announcement></PrivateRoutes>
+                // element:<Announcement></Announcement>
             },
             {
                 path:'postDetails/:id',
                 element:<PostDetails></PostDetails>,
-                loader:({params})=> fetch(`https://vercel.com/sabbirahmed0007/online-conversation-platform-serverpostDetails/${params.id}`)
+                loader:({params})=> fetch(`https://online-conversation-platform-server.vercel.app/postDetails/${params.id}`)
             },
             {
                 path:'comments/:id',
-                element:<ShowComments></ShowComments>
+                // element:<ShowComments></ShowComments>
+                element:<PrivateRoutes><ShowComments></ShowComments></PrivateRoutes>
             }, 
 
         ]
@@ -79,30 +82,35 @@ const Routes = createBrowserRouter([
             },
             {
                 path:'manageUsers',
-                element:<ManageUser></ManageUser>
+                element:<AdminRoutes><ManageUser></ManageUser></AdminRoutes>
+                // element:<ManageUser></ManageUser>
             },
             {
                 path:'activities',
-                element:<Activities></Activities>
+                // element:<Activities></Activities>
+                element:<AdminRoutes><Activities></Activities></AdminRoutes>
             },
 
             {
                 path:'createAnnouncement',
-                element:<CreateAnnoncement></CreateAnnoncement>
+                // element:<CreateAnnoncement></CreateAnnoncement>
+                element:<AdminRoutes><CreateAnnoncement></CreateAnnoncement></AdminRoutes> 
             },
 
             // User Routes
             {
                 path:'myProfile',
-                element:<MyProfile></MyProfile>
+                // element:<MyProfile></MyProfile>
+                element:<PrivateRoutes><MyProfile></MyProfile></PrivateRoutes>
             },
             {
                 path:'addPost',
-                element:<AddPost></AddPost>
+                // element:<AddPost></AddPost>
+                element:<PrivateRoutes><AddPost></AddPost></PrivateRoutes>
             },
             {
                 path:'myPost',
-                element:<MyPost></MyPost>
+                element:<PrivateRoutes><MyPost></MyPost></PrivateRoutes>
             },
             
         ]
